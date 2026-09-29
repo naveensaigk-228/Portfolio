@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f36f52" />
+    <meta name="description" content="G.K. Naveen Sai — a first-year learner exploring technology, languages, and the many ways people connect." />
+    <title>G.K. Naveen Sai — Portfolio</title>
+    <style>
+      :root {
+        --ink: #172044;
+        --coral: #f36f52;
+        --yellow: #ffe477;
+        --blue: #354ed3;
+        --mint: #bce8cd;
+        --lilac: #cbb9f5;
+        --paper: #fffdf6;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; color: var(--ink); background: var(--paper); font-family: Arial, Helvetica, sans-serif; }
+      a { color: inherit; }
+      a:focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
+      h1, h2, h3, p { margin: 0; }
+      h1, h2 { letter-spacing: -.065em; line-height: .94; }
+      h2 { font-size: clamp(3rem, 6vw, 6.5rem); }
+      p { line-height: 1.55; }
+      .skip-link { position: absolute; z-index: 10; top: -100px; left: 16px; padding: 12px; background: var(--paper); }
+      .skip-link:focus { top: 12px; }
+      .wrap { width: min(1200px, calc(100% - 80px)); margin-inline: auto; }
+      .eyebrow { font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+      .section { padding: clamp(82px, 10vw, 148px) 0; scroll-margin-top: 72px; }
+
+      .site-header { position: relative; z-index: 2; background: var(--coral); }
+      .header-inner { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid rgba(23, 32, 68, .38); }
+      .brand { font-size: 1.12rem; font-weight: 900; letter-spacing: -.04em; text-decoration: none; }
+      .brand span { display: inline-block; width: 9px; height: 9px; margin-left: 2px; border-radius: 50%; background: var(--yellow); }
+      .site-nav { display: flex; flex-wrap: wrap; gap: clamp(14px, 3vw, 36px); }
+      .site-nav a { font-size: .85rem; font-weight: 700; text-decoration: none; }
+      .site-nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+
+      .hero { background: var(--coral); overflow: hidden; }
+      .hero-grid { min-height: min(690px, 75vw); display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 24px; padding-block: 70px 80px; }
+      .hero-copy { position: relative; z-index: 1; }
+      .hero-copy .eyebrow { margin-bottom: 32px; }
+      h1 { font-size: clamp(4.9rem, 10vw, 10.5rem); font-weight: 900; }
+      h1 span { color: var(--paper); }
+      .hero-intro { max-width: 480px; margin-top: 34px; font-size: clamp(1.1rem, 1.6vw, 1.4rem); font-weight: 500; }
+      .hero-art { position: relative; width: min(100%, 510px); aspect-ratio: 1; justify-self: end; }
+      .hero-art::before { position: absolute; inset: 3%; border: 2px solid var(--ink); border-radius: 50%; content: ""; }
+      .hero-art::after { position: absolute; inset: 15%; border: 2px dashed rgba(23, 32, 68, .55); border-radius: 50%; content: ""; }
+      .hero-disc { position: absolute; inset: 22%; z-index: 1; display: grid; place-items: center; border-radius: 50%; background: var(--blue); color: var(--paper); box-shadow: 16px 18px 0 var(--yellow); font-size: clamp(4rem, 8vw, 9rem); font-weight: 900; letter-spacing: -.11em; transform: rotate(-10deg); }
+      .sticker { position: absolute; z-index: 2; padding: 13px 19px; border: 2px solid var(--ink); border-radius: 100px; background: var(--paper); font-size: .75rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; box-shadow: 4px 5px 0 var(--ink); }
+      .sticker-one { top: 8%; left: 1%; transform: rotate(-12deg); }
+      .sticker-two { right: -2%; top: 32%; background: var(--mint); transform: rotate(13deg); }
+      .sticker-three { left: 7%; bottom: 7%; background: var(--lilac); transform: rotate(8deg); }
+      .hero-bottom { padding: 22px 0; border-top: 1px solid rgba(23, 32, 68, .38); display: flex; justify-content: space-between; gap: 24px; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+
+      .about { background: var(--yellow); }
+      .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 10vw, 150px); align-items: end; }
+      .about h2 { max-width: 670px; margin-top: 28px; }
+      .about-copy { max-width: 500px; }
+      .about-copy p { font-size: clamp(1.18rem, 2vw, 1.55rem); }
+      .about-copy p + p { margin-top: 24px; }
+      .about-line { width: 65px; height: 8px; margin-bottom: 30px; border-radius: 8px; background: var(--blue); }
+      .traits { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+      .traits span { padding: 10px 16px; border: 1.5px solid currentColor; border-radius: 100px; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+
+      .languages { overflow: hidden; background: var(--blue); color: var(--paper); }
+      .languages-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(50px, 10vw, 140px); align-items: center; }
+      .languages h2 { margin: 26px 0; }
+      .languages p { max-width: 430px; font-size: 1.15rem; }
+      .language-list { display: grid; gap: 14px; }
+      .language { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 100px; padding: 22px 30px; border-radius: 100px; color: var(--ink); font-size: clamp(1.45rem, 3vw, 2.6rem); font-weight: 900; letter-spacing: -.04em; transform: rotate(-3deg); }
+      .language:nth-child(1) { background: var(--coral); }
+      .language:nth-child(2) { margin-left: 38px; background: var(--yellow); transform: rotate(3deg); }
+      .language:nth-child(3) { background: var(--mint); }
+      .language small { font-size: .65rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+
+      .learning { background: var(--mint); }
+      .learning-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 48px; }
+      .learning h2 { max-width: 720px; margin-top: 26px; }
+      .learning-heading > p { max-width: 450px; font-size: 1.2rem; }
+      .learning-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 75px; border-top: 2px solid var(--ink); }
+      .learning-grid article { min-height: 220px; padding: 28px 22px 0 0; }
+      .learning-grid article + article { padding-left: 22px; border-left: 1px solid rgba(23, 32, 68, .35); }
+      .learning-grid .number { display: block; margin-bottom: 58px; color: var(--blue); font-size: .78rem; font-weight: 900; }
+      .learning-grid h3 { margin-bottom: 12px; font-size: 1.25rem; letter-spacing: -.04em; }
+      .learning-grid p { color: #33465a; font-size: .95rem; }
+
+      .projects { background: var(--paper); }
+      .projects-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 50px; }
+      .projects h2 { margin-top: 26px; }
+      .projects-head > p { max-width: 330px; font-size: 1.05rem; }
+      .project-space { min-height: 285px; display: grid; grid-template-columns: 1.15fr .85fr; overflow: hidden; border: 2px solid var(--ink); border-radius: 18px; }
+      .project-space-main { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(26px, 4vw, 50px); background: var(--lilac); }
+      .project-space-main .eyebrow { color: var(--blue); }
+      .project-space-main h3 { max-width: 500px; font-size: clamp(2rem, 4vw, 4rem); line-height: 1; letter-spacing: -.055em; }
+      .project-space-note { display: flex; align-items: end; padding: clamp(26px, 4vw, 50px); background: var(--coral); font-size: 1.12rem; font-weight: 600; }
+
+      .ending { padding: 115px 0 35px; background: var(--lilac); }
+      .ending h2 { max-width: 900px; margin: 24px 0 44px; }
+      .ending-copy { max-width: 600px; margin-bottom: 110px; font-size: 1.2rem; }
+      .footer-line { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; border-top: 1px solid var(--ink); font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+
+      @media (max-width: 900px) {
+        .wrap { width: min(100% - 40px, 680px); }
+        .hero-grid { min-height: 0; grid-template-columns: 1fr; gap: 10px; padding: 70px 0 45px; }
+        .hero-art { width: min(75%, 420px); margin-top: 30px; justify-self: center; }
+        .hero-disc { font-size: clamp(4rem, 14vw, 8rem); }
+        .about-grid, .languages-grid, .learning-heading { grid-template-columns: 1fr; gap: 42px; }
+        .learning-grid { grid-template-columns: repeat(2, 1fr); }
+        .learning-grid article { border-bottom: 1px solid rgba(23, 32, 68, .35); }
+        .learning-grid article:nth-child(3) { padding-left: 0; border-left: 0; }
+      }
+      @media (max-width: 600px) {
+        .wrap { width: calc(100% - 36px); }
+        .header-inner { min-height: 92px; align-items: flex-start; justify-content: center; flex-direction: column; gap: 10px; padding-block: 14px; }
+        .site-nav { gap: 15px; }
+        .site-nav a { font-size: .75rem; }
+        .hero-grid { padding-top: 66px; }
+        h1 { font-size: clamp(4.15rem, 19vw, 6.6rem); }
+        .hero-intro { margin-top: 26px; }
+        .hero-art { width: min(92%, 380px); }
+        .sticker { padding: 8px 11px; font-size: .55rem; box-shadow: 3px 3px 0 var(--ink); }
+        .sticker-two { right: 0; }
+        .hero-bottom { font-size: .62rem; }
+        .section { padding: 80px 0; }
+        h2 { font-size: clamp(2.9rem, 12vw, 5rem); }
+        .language { min-height: 76px; padding: 16px 20px; }
+        .language:nth-child(2) { margin-left: 16px; }
+        .learning-grid { margin-top: 50px; }
+        .learning-grid article { min-height: 190px; }
+        .learning-grid .number { margin-bottom: 42px; }
+        .learning-grid h3 { font-size: 1.08rem; }
+        .projects-head { align-items: start; flex-direction: column; gap: 24px; }
+        .project-space { grid-template-columns: 1fr; }
+        .project-space-main { min-height: 230px; }
+        .project-space-note { min-height: 150px; }
+        .ending { padding-top: 80px; }
+        .ending-copy { margin-bottom: 80px; }
+        .footer-line { flex-direction: column; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="top">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="G.K. Naveen Sai, back to top">G.K. Naveen Sai<span aria-hidden="true"></span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#languages">Languages</a>
+          <a href="#learning">Learning</a>
+          <a href="#projects">Projects</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">A portfolio with room to grow</p>
+            <h1 id="hero-title">Naveen<br />Sai<span>.</span></h1>
+            <p class="hero-intro">Big presence. Easy company. Curious about people, languages, and what technology can make possible.</p>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-disc">NS</div>
+            <span class="sticker sticker-one">People person</span>
+            <span class="sticker sticker-two">Always learning</span>
+            <span class="sticker sticker-three">Many sides</span>
+          </div>
+        </div>
+        <div class="wrap hero-bottom"><span>G.K. Naveen Sai</span><span>Scroll to meet me ↓</span></div>
+      </section>
+
+      <section class="about section" id="about" aria-labelledby="about-title">
+        <div class="wrap about-grid">
+          <div>
+            <p class="eyebrow">01 / The person</p>
+            <h2 id="about-title">More than one color.</h2>
+          </div>
+          <div class="about-copy">
+            <div class="about-line" aria-hidden="true"></div>
+            <p>I’m Naveen—a first-year student with a big presence, an easygoing side, and plenty of curiosity about the world around me.</p>
+            <p>I like meeting people and hearing perspectives different from my own. Every good conversation adds another angle.</p>
+            <div class="traits" aria-label="A few things about me"><span>Friendly</span><span>Curious</span><span>Open to more</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="languages section" id="languages" aria-labelledby="languages-title">
+        <div class="wrap languages-grid">
+          <div>
+            <p class="eyebrow">02 / Connection</p>
+            <h2 id="languages-title">Many ways to say hello.</h2>
+            <p>Languages are one of the ways I connect with people—and a reminder that there’s always another way to see the world.</p>
+          </div>
+          <div class="language-list" aria-label="Languages I speak">
+            <div class="language"><span>Tamil</span><small>Speak</small></div>
+            <div class="language"><span>Telugu</span><small>Speak</small></div>
+            <div class="language"><span>Hindi</span><small>Some</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="learning section" id="learning" aria-labelledby="learning-title">
+        <div class="wrap">
+          <div class="learning-heading">
+            <div>
+              <p class="eyebrow">03 / Where I’m headed</p>
+              <h2 id="learning-title">Range is the plan.</h2>
+            </div>
+            <p>My goal is a well-paying career in tech, built on real ability—not just a list of buzzwords. I want to keep learning useful skills in code and in life.</p>
+          </div>
+          <div class="learning-grid" aria-label="Areas I am exploring">
+            <article><span class="number">01 / EXPLORING</span><h3>Web foundations</h3><p>Learning how good pages are structured and presented.</p></article>
+            <article><span class="number">02 / EXPLORING</span><h3>Programming</h3><p>Building a foundation in logic and new coding languages.</p></article>
+            <article><span class="number">03 / PRACTICING</span><h3>Problem-solving</h3><p>Breaking a big challenge into smaller steps.</p></article>
+            <article><span class="number">04 / GROWING</span><h3>Communication</h3><p>Listening, sharing ideas, and learning from others.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects section" id="projects" aria-labelledby="projects-title">
+        <div class="wrap">
+          <div class="projects-head">
+            <div><p class="eyebrow">04 / The work</p><h2 id="projects-title">In the making.</h2></div>
+            <p>Real work deserves a real story. This space is ready for the projects I build and the things I learn from them.</p>
+          </div>
+          <div class="project-space">
+            <div class="project-space-main"><span class="eyebrow">Projects / Coming soon</span><h3>The first builds will land here.</h3></div>
+            <div class="project-space-note"><p>What I made. Why I made it. What I learned along the way. The story starts with the next build.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ending" aria-labelledby="ending-title">
+        <div class="wrap">
+          <p class="eyebrow">Still becoming</p>
+          <h2 id="ending-title">A lot to learn.<br />A lot to bring.</h2>
+          <p class="ending-copy">This is a starting point, not a finished label. More skills, ideas, and projects are on the way.</p>
+          <footer class="footer-line"><span>G.K. Naveen Sai</span><span>Built to grow</span></footer>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
